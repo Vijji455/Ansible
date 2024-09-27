@@ -1,0 +1,17 @@
+command to be executed on managed node to enable password less auth
+ssh-copy-id -f "o identity file <file path to .pem> ubuntu@public IP
+ssh ubuntu@publicIP   way to connect to mananged node 
+
+ ANsible ad-hoc commands 
+ad hoc tasks can be used to 
+1. reboot servers
+2. copy files
+3. manage packages and users 
+
+
+ansible all -m ping           #to know the server status 
+ansible webserver -a "sbin/reboot" 
+ansible webserver -a uptime 
+ansible-doc -l |more                  #to list all avaiable ansible modules 
+ansible webservers -m ansible.builtin.yum -a "name=httpd state=present"
+ansible webservers -m ansible.builtin.yum -a "name+https state=absent"
